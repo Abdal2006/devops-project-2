@@ -1,4 +1,20 @@
-node {
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh '/opt/homebrew/bin/mvn clean package'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java -cp target/hello-app-1.0-SNAPSHOT.jar com.example.App'
+            }
+        }
+    }
+}node {
 
     stage('Build') {
         sh '/opt/homebrew/bin/mvn clean package'

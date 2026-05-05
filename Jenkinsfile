@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node {
     stage('Build') {
         sh '/opt/homebrew/bin/mvn clean package'
@@ -66,5 +67,11 @@ node {
                 sh 'java -cp target/hello-app-1.0-SNAPSHOT.jar com.example.App'
             }
         }
+=======
+stage('Build') {
+    steps {
+        sh 'ls -al'
+        sh 'cd devops-project-2 && mvn clean package'
+>>>>>>> b4b8d33 (fix pom path issue)
     }
 }
